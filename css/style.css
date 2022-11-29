@@ -342,6 +342,9 @@ button:disabled {
   background-color: grey;
   cursor: not-allowed; }
 
+li:has(a) {
+  cursor: pointer; }
+
 @media only screen and (max-width: 1660px) {
   .app {
     width: 100vw;

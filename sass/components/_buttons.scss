@@ -109,3 +109,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
+li:has(a){
+  cursor: pointer;
+}
+
