@@ -1,7 +1,7 @@
 {
   "name": "eartraining",
   "version": "1.0.0",
-  "description": "",
+  "description": "Recognize, build and sing chords, intervals and scales.",
   "main": "index.js",
   "scripts": {
     "compile:sass": "node-sass sass/main.scss css/style.css -w"
