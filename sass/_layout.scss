@@ -1,0 +1,129 @@
+body {
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  grid-template-rows: 1;
+  background-color: $color-secondary;
+  color: $color-text;
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+  font-family: "Kanit", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  position: relative;
+
+  .app {
+    gap: 2rem;
+    grid-column: 2 / -1;
+    margin-left: 2rem;
+    border-radius: 8px;
+    padding: 10rem;
+    height: 100%;
+    background-color: $color-primary;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-image: url(/images/background/bg3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-blend-mode: luminosity;
+    &__intervals,
+    &__scales {
+      display: none;
+    }
+    & .options-h2 {
+      margin-bottom: 2rem;
+    }
+    & > div {
+      margin-top: 1rem;
+    }
+  }
+  & .option-btns {
+    margin: auto;
+    & .select-all {
+      @include flex-row;
+      & button {
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+.instructions-listen,
+.instructions-sing {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.option-btns__intervals {
+  margin-top: 0;
+  @include flex-column;
+  & .octave1,
+  & .octave2,
+  & .octave3 {
+    @include flex-row;
+    margin-bottom: 2rem;
+    & > div {
+      @include flex-column;
+      & button {
+        justify-content: center;
+        width: 8rem;
+      }
+    }
+  }
+}
+
+.guess-btns__intervals {
+  margin-top: 0;
+  @include flex-column;
+  & .octave1,
+  & .octave2,
+  & .octave3 {
+    @include flex-row;
+    margin-bottom: 2rem;
+    & div {
+      @include flex-column;
+      & button {
+        justify-content: center;
+        width: 8rem;
+      }
+    }
+  }
+}
+
+.option-btns__scales {
+  margin-bottom: 2rem;
+}
+
+.descending {
+  @include checkboxStyle;
+}
+
+.autoplay {
+  @include checkboxStyle;
+}
+
+.hidden {
+  display: none;
+}
+
+form {
+  div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.sing-chord{
+  max-width: 60%;
+  margin: 0 auto;
+}

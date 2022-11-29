@@ -1,0 +1,10 @@
+.app__scales {
+  .guess-btns,
+  .option-btns {
+    @include flex-row;
+    gap: 1rem;
+    & div {
+      @include flex-column;
+    }
+  }
+}

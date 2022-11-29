@@ -1,0 +1,477 @@
+.menu,
+.mobile-menu {
+  grid-column: span 1 / 2;
+  background-color: #3c434e;
+  color: #fff;
+  padding-top: 1rem;
+  border-radius: 8px;
+  width: max-content;
+  text-align: center; }
+  .menu h3,
+  .mobile-menu h3 {
+    font-size: 1.5rem; }
+  .menu ul,
+  .mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 6rem; }
+  .menu__list--item,
+  .mobile-menu__list--item {
+    font-size: 1.5rem;
+    list-style: none;
+    padding: 1rem 0;
+    text-align: center; }
+    .menu__list--item a,
+    .mobile-menu__list--item a {
+      padding: .5rem;
+      text-decoration: none;
+      color: #fff; }
+
+.mobile-menu {
+  display: none; }
+
+.menu__list--item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  transition: all .1s; }
+  .menu__list--item:hover {
+    background-color: #343c47;
+    box-shadow: inset 0 0 3px #283038; }
+  .menu__list--item img {
+    height: 4rem;
+    display: block;
+    margin-top: .5rem;
+    transition: all .1s; }
+  .menu__list--item:hover img {
+    filter: invert(1) saturate(0); }
+
+.hamburger {
+  position: absolute;
+  width: 4rem;
+  height: 2.5rem;
+  left: 3rem;
+  top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .5s ease-out;
+  z-index: 10;
+  display: none; }
+  .hamburger > div {
+    background-color: #283038;
+    width: 100%;
+    height: 4px; }
+  .hamburger__line--1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform .2s; }
+  .hamburger__line--3 {
+    position: absolute;
+    bottom: 0;
+    transition: transform .2s; }
+  .hamburger .line-active1 {
+    rotate: 225deg;
+    transform: translate(0);
+    top: 50%; }
+  .hamburger .line-active3 {
+    transform: translate(0);
+    rotate: -225deg;
+    top: 50%; }
+  .hamburger .line-active2 {
+    display: none; }
+
+.hamburger-active {
+  transform: rotate(360deg); }
+
+body {
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  grid-template-rows: 1;
+  background-color: #283038;
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+  font-family: "Kanit", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  position: relative; }
+  body .app {
+    gap: 2rem;
+    grid-column: 2 / -1;
+    margin-left: 2rem;
+    border-radius: 8px;
+    padding: 10rem;
+    height: 100%;
+    background-color: #3c434e;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-image: url(/images/background/bg3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-blend-mode: luminosity; }
+    body .app__intervals, body .app__scales {
+      display: none; }
+    body .app .options-h2 {
+      margin-bottom: 2rem; }
+    body .app > div {
+      margin-top: 1rem; }
+  body .option-btns {
+    margin: auto; }
+    body .option-btns .select-all {
+      display: flex;
+      flex-direction: row; }
+      body .option-btns .select-all button {
+        margin-right: 1rem;
+        margin-bottom: 2rem; }
+
+.instructions-listen,
+.instructions-sing {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 2rem; }
+  .instructions-listen p,
+  .instructions-sing p {
+    margin-bottom: 0.5rem; }
+
+.option-btns__intervals {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column; }
+  .option-btns__intervals .octave1,
+  .option-btns__intervals .octave2,
+  .option-btns__intervals .octave3 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem; }
+    .option-btns__intervals .octave1 > div,
+    .option-btns__intervals .octave2 > div,
+    .option-btns__intervals .octave3 > div {
+      display: flex;
+      flex-direction: column; }
+      .option-btns__intervals .octave1 > div button,
+      .option-btns__intervals .octave2 > div button,
+      .option-btns__intervals .octave3 > div button {
+        justify-content: center;
+        width: 8rem; }
+
+.guess-btns__intervals {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column; }
+  .guess-btns__intervals .octave1,
+  .guess-btns__intervals .octave2,
+  .guess-btns__intervals .octave3 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem; }
+    .guess-btns__intervals .octave1 div,
+    .guess-btns__intervals .octave2 div,
+    .guess-btns__intervals .octave3 div {
+      display: flex;
+      flex-direction: column; }
+      .guess-btns__intervals .octave1 div button,
+      .guess-btns__intervals .octave2 div button,
+      .guess-btns__intervals .octave3 div button {
+        justify-content: center;
+        width: 8rem; }
+
+.option-btns__scales {
+  margin-bottom: 2rem; }
+
+.descending {
+  font-size: 1.5rem;
+  margin-bottom: 1rem; }
+
+.autoplay {
+  font-size: 1.5rem;
+  margin-bottom: 1rem; }
+
+.hidden {
+  display: none; }
+
+form div {
+  display: flex;
+  align-items: center;
+  gap: 2rem; }
+
+.sing-chord {
+  max-width: 60%;
+  margin: 0 auto; }
+
+.app__scales .guess-btns,
+.app__scales .option-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; }
+  .app__scales .guess-btns div,
+  .app__scales .option-btns div {
+    display: flex;
+    flex-direction: column; }
+
+.app__intervals .guess-btns {
+  display: flex;
+  flex-direction: row; }
+  .app__intervals .guess-btns div {
+    display: flex;
+    flex-direction: column; }
+
+.app__intervals .option-btns {
+  display: flex;
+  flex-direction: row; }
+  .app__intervals .option-btns div {
+    display: flex;
+    flex-direction: column; }
+
+.app__chords .guess-btns__triads, .app__chords .guess-btns__seventh,
+.app__chords .option-btns__triads,
+.app__chords .option-btns__seventh {
+  display: flex;
+  margin-bottom: 3rem;
+  gap: 1rem; }
+  .app__chords .guess-btns__triads div, .app__chords .guess-btns__seventh div,
+  .app__chords .option-btns__triads div,
+  .app__chords .option-btns__seventh div {
+    display: flex;
+    flex-direction: column; }
+
+button {
+  padding: 1rem 1rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #505866;
+  box-shadow: 0 0 3px black;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.guess-btns {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto;
+  align-items: flex-start; }
+  .guess-btns button {
+    display: none;
+    transition: all 0.1s; }
+    .guess-btns button:hover {
+      filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+      scale: 1.05; }
+
+.app__intervals {
+  display: flex; }
+  .app__intervals .guess-btns__intervals button:hover {
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+    scale: 1.05; }
+
+.guess-btns__scales button:hover, .option-btns__scales button:hover {
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+  scale: 1.05; }
+
+.play-btns__chords,
+.sing-btns__chords,
+.play-btns__intervals,
+.sing-btns__intervals,
+.play-btns__scales,
+.sing-btns__scales {
+  margin: 5rem auto;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .play-btns__chords button,
+  .sing-btns__chords button,
+  .play-btns__intervals button,
+  .sing-btns__intervals button,
+  .play-btns__scales button,
+  .sing-btns__scales button {
+    height: 8rem;
+    margin: 1rem;
+    padding: 3rem;
+    background-color: steelblue;
+    font-weight: 600;
+    letter-spacing: 1px; }
+
+.right {
+  color: #fff;
+  background-color: #0bc00b; }
+
+.wrong {
+  background: #ce0808;
+  color: #fff; }
+
+.option-checked {
+  color: #fff;
+  background-color: steelblue;
+  border: none; }
+
+.select-all {
+  display: flex; }
+  .select-all button {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem; }
+    .select-all button:active {
+      background-color: #31363f; }
+
+.guess-btns__scales, .option-btns__scales {
+  display: flex; }
+  .guess-btns__scales div, .option-btns__scales div {
+    display: flex;
+    flex-direction: column; }
+
+.hidden {
+  display: none; }
+
+button:disabled {
+  background-color: grey;
+  cursor: not-allowed; }
+
+@media only screen and (max-width: 1660px) {
+  .app {
+    width: 100vw;
+    padding: 1rem !important;
+    grid-template-columns: repeat(1, 1fr) !important; }
+    .app > div {
+      margin: 0 auto; }
+    .app .option-btns {
+      grid-row: 2; }
+    .app button {
+      padding: 0.5rem; }
+    .app .guess-btns button,
+    .app .option-btns button {
+      margin: 0.3rem; }
+    .app .play-btns__chords button,
+    .app .sing-btns__chords button,
+    .app .play-btns__intervals button,
+    .app .sing-btns__intervals button,
+    .app .play-btns__scales button,
+    .app .sing-btns__scales button {
+      padding: 1rem 2rem;
+      width: 10rem;
+      margin: 0.5rem; }
+  .mobile-menu__active {
+    display: none; } }
+
+@media screen and (max-width: 768px) {
+  .app {
+    grid-column: 1 / -1 !important;
+    margin: 0 !important; }
+    .app .guess-btns button,
+    .app .option-btns button {
+      margin: 0.2rem; }
+    .app .option-btns__intervals button,
+    .app .guess-btns__intervals button {
+      width: 5rem !important; }
+  .hamburger {
+    display: block; }
+  .menu {
+    display: none; }
+  .mobile-menu {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+    margin-top: 2rem; }
+  .play-btns__chords {
+    margin-bottom: 0; }
+  .guess-btns {
+    margin-bottom: 0; }
+  .mobile-menu__active {
+    display: block; } }
+
+@media only screen and (max-width: 560px) {
+  body {
+    padding: 0.5rem; }
+  button {
+    font-size: 1rem !important; }
+  .app {
+    grid-column: 1 / -1 !important;
+    margin: 0 !important; }
+    .app__intervals > div {
+      margin: 0 auto; }
+    .app > div {
+      margin: 0 auto; }
+    .app p {
+      font-size: 0.8rem;
+      letter-spacing: 0; }
+    .app .option-btns__intervals button,
+    .app .guess-btns__intervals button {
+      width: 3.5rem !important; }
+  label {
+    font-size: 0.8rem; }
+  h2 {
+    font-size: 1rem;
+    padding: 0; }
+  .play-btns__chords button,
+  .sing-btns__chords button,
+  .play-btns__intervals button,
+  .sing-btns__intervals button,
+  .play-btns__scales button,
+  .sing-btns__scales button {
+    padding: 1rem 2rem;
+    width: 8rem;
+    margin: 0.5rem; }
+  .mobile-menu {
+    margin-top: .5rem; }
+    .mobile-menu img {
+      height: 3rem;
+      margin: 0 auto; }
+  .mobile-menu__active {
+    display: block; } }
+
+@media only screen and (max-width: 350px) {
+  .option-btns__intervals {
+    margin: 0; }
+    .option-btns__intervalsbutton {
+      margin: 0.3rem; }
+  .play-btns__chords,
+  .sing-btns__chords,
+  .play-btns__intervals,
+  .sing-btns__intervals,
+  .play-btns__scales,
+  .sing-btns__scales {
+    flex-direction: column; }
+    .play-btns__chords button,
+    .sing-btns__chords button,
+    .play-btns__intervals button,
+    .sing-btns__intervals button,
+    .play-btns__scales button,
+    .sing-btns__scales button {
+      font-size: .4rem;
+      padding: 1rem 0 !important;
+      width: 2rem;
+      margin: 0.2rem;
+      height: 5rem; } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; }
+
+html {
+  font-size: 62.5%; }
+
+.sing-chord,
+.sing-interval,
+.sing-scale {
+  font-size: 2rem;
+  text-align: center; }

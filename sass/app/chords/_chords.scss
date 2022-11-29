@@ -1,0 +1,14 @@
+.app__chords {
+  .guess-btns,
+  .option-btns {
+    &__triads,
+    &__seventh {
+      display: flex;
+      margin-bottom: 3rem;
+      gap: 1rem;
+      & div {
+        @include flex-column();
+      }
+    }
+  }
+}

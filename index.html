@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="description" content="Practice and master your listening skills. Recognize, build and sing chords, intervals and scales.">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon64.png">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch180.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"
+        integrity="sha512-jduERlz7En1IUZR54bqzpNI64AbffZWR//KJgF71SJ8D8/liKFZ+s1RxmUmB+bhCnIfzebdZsULwOrbVB5f3nQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js" type="module"></script>
+    <title>Ear Training - Develop your listening skills</title>
+</head>
+    <body>
+        <div class="hamburger">
+            <div class="hamburger__line--1"></div>
+            <div class="hamburger__line--2"></div>
+            <div class="hamburger__line--3"></div>
+        </div>
+        <section class="menu">
+            <h3>LISTENING</h3>
+            <ul>
+                <li class="menu__list--item "><a class="link__chords--listen" href="#"><div>Chords <img src="/images/menu/chord.png" alt=""></div></a></li>
+                <li class="menu__list--item"><a class="link__intervals--listen" href="#"><div>Intervals <img src="/images/menu/interval.png" alt=""></div></a></li>
+                <li class="menu__list--item"><a class="link__scales--listen" href="#">
+                        <div>Scales <img src="/images/menu/scale.png" alt=""></div>
+                    </a></li>
+            </ul>
+            <h3>SINGING</h3>
+            <ul>
+                <li class="menu__list--item "><a class="link__chords--sing" href="#"><div>Chords <img src="/images/menu/chord.png" alt=""></div></a></li>
+                <li class="menu__list--item"><a class="link__intervals--sing" href="#"><div>Intervals <img src="/images/menu/interval.png" alt=""></div></a></li>
+                <li class="menu__list--item"><a class="link__scales--sing" href="#"><div>Scales <img src="/images/menu/scale.png" alt=""></div></a></li>
+            </ul>
+        </section>
+        <section class="mobile-menu">
+            <h3>LISTENING</h3>
+            <ul>
+                <li class="menu__list--item "><a class="link__chords--listen" href="#"><div>Chords <img src="/images/menu/chord.png" alt=""></div></a></li>
+                <li class="menu__list--item"><a class="link__intervals--listen" href="#"><div>Intervals <img src="/images/menu/interval.png" alt=""></div></a></li>
+                <li class="menu__list--item"><a class="link__scales--listen" href="#">
+                        <div>Scales <img src="/images/menu/scale.png" alt=""></div>
+                    </a></li>
+            </ul>
+            <h3>SINGING</h3>
+            <ul>
+                <li class="menu__list--item "><a class="link__chords--sing" href="#"><div>Chords <img src="/images/menu/chord.png" alt=""></div></a></li>
+                <li class="menu__list--item"><a class="link__intervals--sing" href="#"><div>Intervals <img src="/images/menu/interval.png" alt=""></div></a></li>
+                <li class="menu__list--item"><a class="link__scales--sing" href="#"><div>Scales <img src="/images/menu/scale.png" alt=""></div></a></li>
+            </ul>
+        </section>
+        <section class="app app__chords active">
+            <div>
+                <div class="sing-chord"></div>
+                <div class="play-btns__chords">
+                    <button disabled class="play-btns__chords--new">New Chord</button>
+                    <button disabled class="play-btns__chords--play">Play Chord</button>
+                    <button disabled class="play-btns__chords--arp">Play Arpeggio</button>
+                </div>
+                <div class="sing-btns__chords">
+                    <button disabled class="sing-btns__chords--new">New Chord</button>
+                    <button disabled class="sing-btns__chords--first">Play First Note</button>
+                    <button disabled class="sing-btns__chords--check">Check</button>
+                </div>
+                <div class="guess-btns">
+                    <div class="guess-btns__triads">
+                        <div class="guess-btns__triads--major">
+                            <button value="majorTriadRoot" class="guess-btn-chord hidden">Maj Triad Root</button>
+                            <button value="majorTriadInv1" class="guess-btn-chord hidden">Maj Triad 1st
+                                Inv</button>
+                            <button value="majorTriadInv2" class="guess-btn-chord hidden">Maj Triad 2st
+                                Inv</button>
+                        </div>
+                        <div class="guess-btns__triads--minor">
+                            <button value="minorTriadRoot" class="guess-btn-chord hidden">Min Triad Root</button>
+                            <button value="minorTriadInv1" class="guess-btn-chord hidden">Min Triad 1st
+                                Inv</button>
+                            <button value="minorTriadInv2" class="guess-btn-chord hidden">Min Triad 2nd
+                                Inv</button>
+                        </div>
+                        <div class="guess-btns__triads--diminished">
+                            <button value="diminishedTriadRoot" class="guess-btn-chord hidden">Dim Triad
+                                Root</button>
+                        </div>
+                        <div class="guess-btns__triads--augumented">
+                            <button value="augumentedTriadRoot" class="guess-btn-chord hidden">Aug Triad
+                                Root</button>
+                        </div>
+                    </div>
+                    <div class="guess-btns__seventh">
+                        <div class="guess-btns__seventh--major">
+                            <button value="majorSeventhRoot" class="guess-btn-chord hidden">Maj 7 Root</button>
+                            <button value="majorSeventhInv1" class="guess-btn-chord hidden">Maj 7 1st
+                                Inv</button>
+                            <button value="majorSeventhInv2" class="guess-btn-chord hidden">Maj 7 2st
+                                Inv</button>
+                            <button value="majorSeventhInv3" class="guess-btn-chord hidden">Maj 7 3rd
+                                Inv</button>
+                        </div>
+                        <div class="guess-btns__seventh--minor">
+                            <button value="minorSeventhRoot" class="guess-btn-chord hidden">Min 7 Root</button>
+                            <button value="minorSeventhInv1" class="guess-btn-chord hidden">Min 7 1st
+                                Inv</button>
+                            <button value="minorSeventhInv2" class="guess-btn-chord hidden">Min 7 2st
+                                Inv</button>
+                            <button value="minorSeventhInv3" class="guess-btn-chord hidden">Min 7 3rd
+                                Inv</button>
+                        </div>
+                        <div class="guess-btns__seventh--dominant">
+                            <button value="dominantSeventhRoot" class="guess-btn-chord hidden">Dom 7
+                                Root</button>
+                            <button value="dominantSeventhInv1" class="guess-btn-chord hidden">Dom 7 1st
+                                Inv</button>
+                            <button value="dominantSeventhInv2" class="guess-btn-chord hidden">Dom 7 2nd
+                                Inv</button>
+                            <button value="dominantSeventhInv3" class="guess-btn-chord hidden">Dom 7 3rd
+                                Inv</button>
+                        </div>
+                        <div class="guess-btns__seventh--half-diminished">
+                            <button value="halfDiminishedSeventhRoot" class="guess-btn-chord hidden">7b5 Root</button>
+                            <button value="halfDiminishedSeventhInv1" class="guess-btn-chord hidden">7b5 1st Inv</button>
+                            <button value="halfDiminishedSeventhInv2" class="guess-btn-chord hidden">7b5 2nd Inv</button>
+                            <button value="halfDiminishedSeventhInv3" class="guess-btn-chord hidden">7b5 3rd Inv</button>
+                        </div>
+                        <div class="guess-btns__seventh--diminished">
+                            <button value="diminishedSeventhRoot" class="guess-btn-chord hidden">Dim 7
+                                Root</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="option-btns">
+                <div class="instructions-listen">
+                    <p>Select the chords you want to include in your practice.</p>
+                    <p>Click the <strong>New Chord</strong> button to play a new chord.</p>
+                    <p>Click the <strong>Play Chord</strong> button to hear the same chord again.</p>
+                    <p>Click the <strong>Play Arpeggio</strong> button to play the chord one note at a time.</p>
+                </div>
+                <div class="instructions-sing">
+                    <p>Select the chords you want to include in your practice.</p>
+                    <p>Click the <strong>New Chord</strong> to hear a new starting note.</p>
+                    <p>Click the <strong>Play First Note</strong> button to hear the starting note again.</p>
+                    <p>Click the <strong>Check</strong> button to hear the correct chord.</p>
+                </div>
+                <div class="select-all">
+                    <button class="select-all__chords">Select All</button>
+                    <button class="clear-all__chords">Clear All</button>
+                </div>
+
+                <h3>Triads</h3>
+                <div class="option-btns__triads">
+                    <div class="option-btns__triads--major">
+                        <button value="majorTriadRoot" class="option-btn-chord">Maj Triad Root</button>
+                        <button value="majorTriadInv1" class="option-btn-chord">Maj Triad 1st Inv</button>
+                        <button value="majorTriadInv2" class="option-btn-chord">Maj Triad 2st Inv</button>
+                    </div>
+                    <div class="option-btns__triads--minor">
+                        <button value="minorTriadRoot" class="option-btn-chord">Min Triad Root</button>
+                        <button value="minorTriadInv1" class="option-btn-chord">Min Triad 1st Inv</button>
+                        <button value="minorTriadInv2" class="option-btn-chord">Min Triad 2nd Inv</button>
+                    </div>
+                    <div class="option-btns__triads--diminished">
+                        <button value="diminishedTriadRoot" class="option-btn-chord">Dim Triad Root</button>
+                    </div>
+                    <div class="option-btns__triads--augumented">
+                        <button value="augumentedTriadRoot" class="option-btn-chord">Aug Triad Root</button>
+                    </div>
+                </div>
+                <h3>Seventh Chords</h3>
+                <div class="option-btns__seventh">
+                    <div class="option-btns__seventh--major">
+                        <button value="majorSeventhRoot" class="option-btn-chord">Maj 7 Root</button>
+                        <button value="majorSeventhInv1" class="option-btn-chord">Maj 7 1st Inv</button>
+                        <button value="majorSeventhInv2" class="option-btn-chord">Maj 7 2st Inv</button>
+                        <button value="majorSeventhInv3" class="option-btn-chord">Maj 7 3rd Inv</button>
+                    </div>
+                    <div class="option-btns__seventh--minor">
+                        <button value="minorSeventhRoot" class="option-btn-chord">Min 7 Root</button>
+                        <button value="minorSeventhInv1" class="option-btn-chord">Min 7 1st Inv</button>
+                        <button value="minorSeventhInv2" class="option-btn-chord">Min 7 2st Inv</button>
+                        <button value="minorSeventhInv3" class="option-btn-chord">Min 7 3rd Inv</button>
+                    </div>
+                    <div class="option-btns__seventh--dominant">
+                        <button value="dominantSeventhRoot" class="option-btn-chord">Dom 7 Root</button>
+                        <button value="dominantSeventhInv1" class="option-btn-chord">Dom 7 1st Inv</button>
+                        <button value="dominantSeventhInv2" class="option-btn-chord">Dom 7 2nd Inv</button>
+                        <button value="dominantSeventhInv3" class="option-btn-chord">Dom 7 3rd Inv</button>
+                    </div>
+                    <div class="option-btns__seventh--half--diminished">
+                        <button value="halfDiminishedSeventhRoot" class="option-btn-chord">7b5 Root</button>
+                        <button value="halfDiminishedSeventhInv1" class="option-btn-chord">7b5 1stInv</button>
+                        <button value="halfDiminishedSeventhInv2" class="option-btn-chord">7b5 2ndInv</button>
+                        <button value="halfDiminishedSeventhInv3" class="option-btn-chord">7b5 3rdInv</button>
+                    </div>
+                    <div class="option-btns__seventh--diminished">
+                        <button value="diminishedSeventhRoot" class="option-btn-chord">Dim 7 Root</button>
+                    </div>
+
+                </div>
+                <h2 class="options-h2">Options:</h2>
+                <form class="descending" action="">
+                    <div>
+                        <label class="descending__label" for="descending-chord">Play descending?</label>
+                        <input class="descending__checkbox" id="descending-chord" type="checkbox">
+                    </div>
+                </form>
+                <form class="autoplay" action="">
+                    <div>
+                        <label class="autoplay__label" for="autoplay-chord">Autoplay next when guessed?</label>
+                        <input class="autoplay__checkbox" id="autoplay-chord" type="checkbox" checked>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="app app__intervals">
+            <div>
+                <div class="sing-interval"></div>
+                <div class="play-btns__intervals">
+                    <button disabled class="play-btns__intervals--new">New Interval</button>
+                    <button disabled class="play-btns__intervals--play">Play Interval</button>
+                    <button disabled class="play-btns__intervals--arp">Play Arpeggio</button>
+                </div>
+                <div class="sing-btns__intervals">
+                    <button disabled class="sing-btns__intervals--new">New Interval</button>
+                    <button disabled class="sing-btns__intervals--first">Play First Note</button>
+                    <button disabled class="sing-btns__intervals--check">Check</button>
+                </div>
+
+                <div class="guess-btns__intervals">
+                    <div class="octave1">
+
+                        <div class="guess-btns__unison hidden">
+                            <button value="perfectUnison" class=" guess-btn-int hidden">P1</button>
+                        </div>
+                        <div class="guess-btns__second">
+                            <button value="majorSecond" class=" guess-btn-int hidden">M2</button>
+                            <button value="minorSecond" class=" guess-btn-int hidden">m2</button>
+                        </div>
+                        <div class="guess-btns__third">
+                            <button value="majorThird" class=" guess-btn-int hidden">M3</button>
+                            <button value="minorThird" class=" guess-btn-int hidden">m3</button>
+                        </div>
+                        <div class="guess-btns__fourth">
+                            <button value="perfectFourth" class=" guess-btn-int hidden">P4</button>
+                            <button value="augumentedFourth" class=" guess-btn-int hidden">Aug4</button>
+                        </div>
+                        <div class="guess-btns__fifth">
+                            <button value="perfectFifth" class=" guess-btn-int hidden">P5</button>
+                        </div>
+                        <div class="guess-btns__sixth">
+                            <button value="majorSixth" class=" guess-btn-int hidden">M6</button>
+                            <button value="minorSixth" class=" guess-btn-int hidden">m6</button>
+                        </div>
+                        <div class="guess-btns__seventh">
+                            <button value="majorSeventh" class=" guess-btn-int hidden">M7</button>
+                            <button value="minorSeventh" class=" guess-btn-int hidden">m7</button>
+                        </div>
+                    </div>
+                    <div class="octave2">
+
+                        <div class="guess-btns__octave">
+                            <button value="perfectOctave" class=" guess-btn-int hidden">P8</button>
+                        </div>
+                        <div class="guess-btns__ninth">
+                            <button value="majorNinth" class=" guess-btn-int hidden">M9</button>
+                            <button value="minorNinth" class=" guess-btn-int hidden">m9</button>
+                        </div>
+                        <div class="guess-btns__tenth">
+                            <button value="majorTenth" class=" guess-btn-int hidden">M10</button>
+                            <button value="minorTenth" class=" guess-btn-int hidden">m10</button>
+                        </div>
+                        <div class="guess-btns__eleventh">
+                            <button value="perfectEleventh" class=" guess-btn-int hidden">P11</button>
+                            <button value="augumentedEleventh" class=" guess-btn-int hidden">Aug11</button>
+                        </div>
+                        <div class="guess-btns__twelveth">
+                            <button value="perfectTwelveth" class=" guess-btn-int hidden">P12</button>
+                        </div>
+                        <div class="guess-btns__thirteenth">
+                            <button value="majorThirteenth" class=" guess-btn-int hidden">M13</button>
+                            <button value="minorThirteenth" class=" guess-btn-int hidden">m13</button>
+                        </div>
+                        <div class="guess-btns__Fourteenth">
+                            <button value="majorFourteenth" class=" guess-btn-int hidden">M14</button>
+                            <button value="minorFourteenth" class=" guess-btn-int hidden">m14</button>
+                        </div>
+                    </div>
+                    <div class="octave3">
+                        <div class="guess-btns__fifteenth">
+                            <button value="perfectFifteenth" class=" guess-btn-int hidden">P15</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="option-btns__intervals">
+                    <div class="instructions-listen">
+                        <p>Select the chords you want to include in your practice.</p>
+                        <p>Click the <strong>New Interval</strong> button to play a new interval.</p>
+                        <p>Click the <strong>Play Interval</strong> button to hear the same interval again.</p>
+                        <p>Click the <strong>Play Arpeggio</strong> button to play the interval one note at a time.</p>
+                    </div>
+                    <div class="instructions-sing">
+                        <p>Select the intervals you want to include in your practice.</p>
+                        <p>Click the <strong>New Interval</strong> to hear a new starting note.</p>
+                        <p>Click the <strong>Play First Note</strong> button to hear the starting note again.</p>
+                        <p>Click the <strong>Check</strong> button to hear the correct interval.</p>
+                    </div>
+                    <div class="select-all">
+                        <button class="select-all__intervals">Select All</button>
+                        <button class="clear-all__intervals">Clear All</button>
+                    </div>
+                    <h3>Intervals</h3>
+                    <div class="octave1">
+
+                        <div class="option-btns__unison">
+                            <button value="perfectUnison" class="option-btn-int">P1</button>
+                        </div>
+                        <div class="option-btns__second">
+                            <button value="majorSecond" class="option-btn-int">M2</button>
+                            <button value="minorSecond" class="option-btn-int">m2</button>
+                        </div>
+                        <div class="option-btns__third">
+                            <button value="majorThird" class="option-btn-int">M3</button>
+                            <button value="minorThird" class="option-btn-int">m3</button>
+                        </div>
+                        <div class="option-btns__fourth">
+                            <button value="perfectFourth" class="option-btn-int">P4</button>
+                            <button value="augumentedFourth" class="option-btn-int">Aug4</button>
+                        </div>
+                        <div class="option-btns__fifth">
+                            <button value="perfectFifth" class="option-btn-int">P5</button>
+                        </div>
+                        <div class="option-btns__sixth">
+                            <button value="majorSixth" class="option-btn-int">M6</button>
+                            <button value="minorSixth" class="option-btn-int">m6</button>
+                        </div>
+                        <div class="option-btns__seventh">
+                            <button value="majorSeventh" class="option-btn-int">M7</button>
+                            <button value="minorSeventh" class="option-btn-int">m7</button>
+                        </div>
+                    </div>
+                    <div class="octave2">
+
+                        <div class="option-btns__octave">
+                            <button value="perfectOctave" class="option-btn-int">P8</button>
+                        </div>
+                        <div class="option-btns__ninth">
+                            <button value="majorNinth" class="option-btn-int">M9</button>
+                            <button value="minorNinth" class="option-btn-int">m9</button>
+                        </div>
+                        <div class="option-btns__tenth">
+                            <button value="majorTenth" class="option-btn-int">M10</button>
+                            <button value="minorTenth" class="option-btn-int">m10</button>
+                        </div>
+                        <div class="option-btns__eleventh">
+                            <button value="perfectEleventh" class="option-btn-int">P11</button>
+                            <button value="augumentedEleventh" class="option-btn-int">Aug11</button>
+                        </div>
+                        <div class="option-btns__twelveth">
+                            <button value="perfectTwelveth" class="option-btn-int">P12</button>
+                        </div>
+                        <div class="option-btns__thirteenth">
+                            <button value="majorThirteenth" class="option-btn-int">M13</button>
+                            <button value="minorThirteenth" class="option-btn-int">m13</button>
+                        </div>
+                        <div class="option-btns__Fourteenth">
+                            <button value="majorFourteenth" class="option-btn-int">M14</button>
+                            <button value="minorFourteenth" class="option-btn-int">m14</button>
+                        </div>
+                    </div>
+                    <div class="octave3">
+                        <div class="option-btns__fifteenth">
+                            <button value="perfectFifteenth" class="option-btn-int">P15</button>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="options-h2">Options:</h2>
+                <form class="descending" action="">
+                    <div>
+                        <label class="descending__label" for="descending-interval">Play descending?</label>
+                        <input class="descending__checkbox" id="descending-interval" type="checkbox">
+                    </div>
+                </form>
+                
+                <form class="autoplay" action="">
+                        <div>
+                        <label class="autoplay__label" for="autoplay-interval">Autoplay next when guessed?</label>
+                        <input class="autoplay__checkbox" id="autoplay-interval" type="checkbox" checked>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+        <section class="app app__scales">
+            <div>
+                <div class="sing-scale"></div>
+                <div class="play-btns__scales">
+                    <button disabled class="play-btns__scales--new">New Scale</button>
+                    <button disabled class="play-btns__scales--play">Play Scale</button>
+                </div>
+                <div class="sing-btns__scales">
+                    <button disabled class="sing-btns__scales--new">New Scale</button>
+                    <button disabled class="sing-btns__scales--first">Play First Note</button>
+                    <button disabled class="sing-btns__scales--check">Check</button>
+                </div>
+
+                <div class="guess-btns__scales">
+                    <div>
+                        <button value="majorScale" class="guess-btns__majorScale guess-btn-scale hidden">Major
+                            Scale</button>
+                        <button value="dorianScale" class="guess-btns__dorianScale guess-btn-scale hidden">Dorian Mode</button>
+                        <button value="phrygianScale" class="guess-btns__phrygianScale guess-btn-scale hidden">Phrygian Mode</button>
+                        <button value="lydianScale" class="guess-btns__lydianScale guess-btn-scale hidden">Lydian Mode</button>
+                        <button value="mixolydianScale"
+                            class="guess-btns__mixolydianScale guess-btn-scale hidden">Mixolydian Scale</button>
+                        <button value="locrianScale" class="guess-btns__locrianScale guess-btn-scale hidden">Locrian Mode</button>
+                    </div>
+                    <div>
+                        <button value="minorScale" class="guess-btns__minorScale guess-btn-scale hidden">Natural
+                            Minor</button>
+                        <button value="harmonicMinor" class="guess-btns__harmonicMinor guess-btn-scale hidden">Harmonic
+                            Minor</button>
+                        <button value="melodicMinor" class="guess-btns__melodicMinor guess-btn-scale hidden">Melodic
+                            Minor</button>
+                    </div>
+                    <div>
+                        <button value="diminishedScale"
+                            class="guess-btns__diminishedScale guess-btn-scale hidden">Diminished Scale</button>
+                        <button value="wholeToneScale" class="guess-btns__wholeToneScale guess-btn-scale hidden">Whole
+                            Tone Scale</button>
+                    </div>
+                    <div>
+                        <button value="minorPentatonic" class="guess-btns__minorPentatonic guess-btn-scale hidden">Minor
+                            Pentatonic</button>
+                        <button value="majorPentatonic" class="guess-btns__majorPentatonic guess-btn-scale hidden">Major
+                            Pentatonic</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="instructions-listen">
+                        <p>Select the scales you want to include in your practice.</p>
+                        <p>Click the <strong>New Scale</strong> button to play a new scale.</p>
+                        <p>Click the <strong>Play Interval</strong> button to hear the same scale again.</p>
+                    </div>
+                    <div class="instructions-sing">
+                        <p>Select the scales you want to include in your practice.</p>
+                        <p>Click the <strong>New Scale</strong> to hear a new starting note.</p>
+                        <p>Click the <strong>Play First Note</strong> button to hear the starting note again.</p>
+                        <p>Click the <strong>Check</strong> button to hear the correct scale.</p>
+                    </div>
+                    <div class="select-all">
+
+                        <button class="select-all__scales">Select All</button>
+                        <button class="clear-all__scales">Clear All</button>
+                    </div>
+                    <div class="option-btns__scales">
+                        <div>
+                            <button value="majorScale" class="option-btn-scale">Major Scale</button>
+                            <button value="dorianScale" class="option-btn-scale">Dorian
+                               Mode</button>
+                            <button value="phrygianScale" class="option-btn-scale">Phrygian
+                               Mode</button>
+                            <button value="lydianScale" class="option-btn-scale">Lydian
+                               Mode</button>
+                            <button value="mixolydianScale" class="option-btn-scale">Mixolydian
+                               Mode</button>
+                            <button value="locrianScale" class="option-btn-scale">Locrian
+                               Mode</button>
+                        </div>
+                        <div>
+                            <button value="minorScale" class="option-btn-scale">Natural
+                                Minor</button>
+                            <button value="harmonicMinor" class="option-btn-scale">Harmonic
+                                Minor</button>
+                            <button value="melodicMinor" class="option-btn-scale">Melodic
+                                Minor</button>
+                        </div>
+                        <div>
+                            <button value="diminishedScale" class="guess-btns__diminished option-btn-scale">Diminished
+                                Scale</button>
+                            <button value="wholeToneScale" class="option-btn-scale">Whole Tone
+                                Scale</button>
+                        </div>
+                        <div>
+                            <button value="minorPentatonic" class="option-btn-scale">Minor
+                                Pentatonic</button>
+                            <button value="majorPentatonic" class="option-btn-scale">Major
+                                Pentatonic</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="options-h2">Options:</h2>
+                        <form class="descending" action="">
+                            <div>
+                                <label class="descending__label" for="descending-scale">Play descending?</label>
+                                <input class="descending__checkbox" id="descending-scale" type="checkbox">
+                            </div>
+                        </form>
+                        <form class="autoplay" action="">
+                            <div>
+                                <label class="autoplay__label" for="autoplay-scale">Autoplay next when guessed?</label>
+                                <input class="autoplay__checkbox" id="autoplay-scale" type="checkbox" checked>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </section>
+    </body>
+</html>

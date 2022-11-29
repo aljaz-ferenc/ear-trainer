@@ -1,0 +1,29 @@
+@import 'mixins';
+@import "sass/variables";
+@import "sass/components/menu";
+@import "sass/layout";
+@import "sass/app/scales/scales";
+@import "sass/app/intervals/intervals";
+@import "sass/app/chords/chords";
+@import "sass/components/buttons";
+@import "sass/mediaqueries";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.sing-chord,
+.sing-interval,
+.sing-scale {
+  font-size: 2rem;
+  text-align: center;
+}

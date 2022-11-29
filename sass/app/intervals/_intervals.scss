@@ -1,0 +1,14 @@
+.app__intervals {
+  .guess-btns {
+    @include flex-row;
+    & div {
+      @include flex-column;
+    }
+  }
+  .option-btns {
+    @include flex-row;
+    & div {
+      @include flex-column;
+    }
+  }
+}

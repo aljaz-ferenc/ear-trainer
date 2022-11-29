@@ -1,0 +1,111 @@
+button {
+  padding: 1rem 1rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: $color-button;
+  box-shadow: $button-shadow;
+  color: $color-text;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 300;
+  @include flex-center;
+}
+
+.guess-btns {
+  @include flex-column;
+  margin: 3rem auto;
+  align-items: flex-start;
+  & button {
+    display: none;
+    transition: all 0.1s;
+    &:hover {
+      @include button-hover;
+    }
+  }
+}
+
+.app__intervals {
+  display: flex;
+  & .guess-btns__intervals {
+    & button:hover {
+      @include drop-shadow;
+      scale: 1.05;
+    }
+  }
+}
+
+.guess-btns__scales{
+  & button:hover{
+      @include drop-shadow;
+      scale: 1.05;
+}
+}
+
+.play-btns__chords,
+.sing-btns__chords,
+.play-btns__intervals,
+.sing-btns__intervals,
+.play-btns__scales,
+.sing-btns__scales {
+  margin: 5rem auto;
+  margin-top: 5rem;
+  @include flex-center;
+  button {
+    height: 8rem;
+    margin: 1rem;
+    padding: 3rem;
+    background-color: $color-accent;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+}
+
+.right {
+  color: $color-text;
+  background-color: $color-correct-answer;
+}
+
+.wrong {
+  background: $color-wrong-answer;
+  color: $color-text;
+}
+
+.option-checked {
+  color: $color-text;
+  background-color: $color-accent;
+  border: none;
+}
+
+.select-all{
+  display: flex;
+  & button {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    &:active{
+      @include button-active;
+    }
+  }
+}
+
+.guess-btns__scales {
+  display: flex;
+  & div {
+    @include flex-column()
+  }
+}
+
+.option-btns__scales {
+  @extend .guess-btns__scales;
+}
+
+.hidden {
+  display: none;
+}
+
+button:disabled {
+  background-color: $color-disabled-btn;
+  cursor: not-allowed;
+}
+

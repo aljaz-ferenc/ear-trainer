@@ -1,0 +1,28 @@
+@mixin checkboxStyle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin button-hover {
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+  scale: 1.05;
+}
+@mixin button-active {
+  background-color: rgb(49, 54, 63);
+}
+@mixin drop-shadow {
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+}
+
